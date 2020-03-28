@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+ul {
+    list-style-type: none;
+}
+body {
+    font-family: roboto, sans-serif;
+}
+$colorWhite: #fff;
+$colorBlack:#000;
+$colorText:#333;
+$colorTextmuted:#414141;
+$colorLink:#0b22f0;
+$colorBg:#F1C40F;
+$colorBgLight:#DDDDDD;
+$colorIcon:#FF8C00;
+
+$mobile-width:380px;
+$tablet-width:678px;
+
+@mixin mobile {
+    @media (min-width:0) and (max-width:#{$mobile-width}) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width:#{$mobile-width}) and (max-width:#{$tablet-width}) {
+        @content;
+    }
+}
+
+.row-header {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #d8f5ff, #91fbfe, #54fdd6, #68f98c, #a8eb12);    
+    .header-content {
+        width: 800px;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        @include mobile {
+            width: 100%;
+            text-align: center;
+        }
+        @include tablet {
+            width: 100%;
+        }
+        .logo {
+            width: 30%;
+            @include mobile {
+                width: 100%;
+            }
+            .img {
+                width: 100%;
+            }
+
+        }
+        .menu {
+            text-align: right;
+            width: 70%;
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    margin-left: 30px;
+                    color: $colorTextmuted;
+                    font-size: calc(12px + 0.5vmin);
+                    @include tablet {
+                        margin-left: 20px;
+                    }
+                    a {
+                        font-weight: bold;
+                        &:hover {
+                            color: $colorLink;
+                        }
+                    }
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    &:last-child {
+                        @include tablet {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.row-main {
+    width: 800px;
+    margin: auto;
+    margin-top: 100px;
+    @include mobile {
+        width: 100%;
+    }
+    @include tablet {
+        width: 100%;
+    }
+    h1 {
+        text-align: center;
+        font-size: calc(12px + 2.5vmin);
+    }
+    .row-form {
+        margin-top: 20px;
+        form {
+            width: 30%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @include mobile {
+                width: 90%;
+                margin: auto;
+            }
+            @include tablet {
+                width: 50%;
+            }
+            input {
+                width: 100%;
+                padding: 5px 10px;
+                font-family: inherit;
+            }
+            button {
+                width: 50%;
+                margin-top: 10px;
+                padding: 7px 0;
+                text-align: center;
+                text-transform: uppercase;
+                background-color: $colorBg;
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                color: $colorWhite;
+                font-weight: bold;
+                font-size: calc(12px + 0.5vmin);
+                cursor: pointer;
+                &:hover {
+                    background-color: $colorIcon;
+                }
+            }
+        }
+    }
+    .row-feature {
+        width: 100%;
+        margin-top: 30px;
+        @include tablet {
+            width: 80%;
+            margin: auto;
+            margin-top: 30px;
+        }
+        .feature-box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 40px;
+            @include mobile {
+                margin-bottom: 30px;
+            }
+            .icon {
+                width: 8%;
+                font-size: calc(12px + 2vmin);
+                color: $colorIcon;
+                @include mobile {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
+            }
+            .info {
+                width: 90%;
+                @include mobile {
+                    width: 100%;
+                    text-align: center;
+                }
+                .title {
+                    font-size: calc(12px + 1.5vmin);
+                }
+                p {
+                    margin-top: 5px;
+                    font-size: calc(12px + 0.3vmin);
+                }
+            }
+        }
+    }
+    .row-video {
+        text-align: center;
+        iframe {
+            width: 350px;
+            height: 250px;
+            @include mobile {
+                width: 100%;
+            }
+        }
+    }
+    .row-pricing {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        @include mobile {
+            align-items: center;
+            justify-content: center;
+        }
+        @include tablet {
+            align-items: center;
+            justify-content: center;
+        }
+        .pricing-box {
+            width: 30%;
+            text-align: center;
+            border: 1px solid #aaa;
+            @include mobile {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+            @include tablet {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+            .title {
+                border-bottom: 1px solid #aaa;
+                background-color: $colorBgLight;
+                line-height: 50px;
+                text-transform: uppercase;
+                font-size: calc(12px + 0.5vmin);
+                font-weight: bold;
+            }
+            .price {
+                font-size: calc(12px + 2vmin);
+                line-height: 50px;
+            }
+            ul {
+                margin: 10px 0;
+                li {
+                    margin: 7px 0;
+                    font-size: calc(12px + 0.5vmin);
+                    color:$colorText;
+                }
+            }
+            .btn {
+                margin: 10px 0;
+                padding: 7px 20px;
+                background-color: $colorBg;
+                border-radius: 5px;
+                outline: none;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-size: calc(12px + 0.5vmin);
+                &:hover {
+                    background-color: $colorIcon;
+                }
+            }
+        }
+    }
+}
+.row-footer {
+    width: 800px;
+    height: 80px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: $colorBgLight;
+    @include mobile {
+        width: 100%;
+    }
+    @include tablet {
+        width: 100%;
+    }
+    .footer-content {
+        height: 70%;
+        ul {
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            li {
+                display: inline-block;
+                margin-right: 20px;
+                font-size: calc(12px + 0.5vmin);
+                a {
+                    &:hover {
+                        color: $colorLink;
+                    }
+                }
+            }
+        }
+    }
+    p {
+        text-align: right;
+        margin-right: 20px;
+        line-height: 30%;
+        font-size: calc(12px + 0.5vmin);
+    }
+}
